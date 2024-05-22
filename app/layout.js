@@ -1,8 +1,8 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import { DBConnect } from "@/services";
 import AuthProvider from "./providers/AuthProvider";
+import DBConnect from "@/services";
 
 const poppins = Poppins({
   subsets: ["latin"],

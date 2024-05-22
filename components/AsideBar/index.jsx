@@ -1,9 +1,9 @@
 import { getAllRecipes } from "@/queries";
 import { removeDuplicatesByProperty } from "@/utils";
 import Link from "next/link";
-const allRecipes = await getAllRecipes();
 
-export default function SideBar() {
+export default async function SideBar() {
+  const allRecipes = await getAllRecipes();
   const uniqueCategories = removeDuplicatesByProperty(allRecipes, "category");
 
   return (

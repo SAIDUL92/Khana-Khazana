@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const MONGO_URI = process.env.MONGO_URI;
 const cached = {};
+
 async function DBConnect() {
   if (!MONGO_URI) {
     throw new Error(
@@ -13,8 +14,10 @@ async function DBConnect() {
   }
   if (!cached.promise) {
     const opts = {
-      bufferCommands: false,
       dbName: "khanaKhazana",
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      bufferCommands: true,
     };
     cached.promise = mongoose.connect(MONGO_URI, opts);
   }
@@ -27,4 +30,5 @@ async function DBConnect() {
   }
   return cached.connection;
 }
-export default connectMongo;
+
+export default DBConnect;

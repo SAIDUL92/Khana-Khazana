@@ -1,7 +1,7 @@
+import { getAllRecipes } from "@/queries";
 import SideBar from "@/components/AsideBar";
 import Banner from "@/components/Banner";
 import Card from "@/components/Card";
-import { getAllRecipes } from "@/queries";
 import { Suspense } from "react";
 import Loading from "./loading";
 

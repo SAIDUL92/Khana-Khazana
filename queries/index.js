@@ -1,7 +1,7 @@
+import mongoose from "mongoose";
 import { recipeModel } from "@/models/recipesModel";
 import { userModel } from "@/models/userModel";
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils";
-import mongoose from "mongoose";
 
 async function getAllRecipes() {
   const allRecipes = await recipeModel.find().lean();
