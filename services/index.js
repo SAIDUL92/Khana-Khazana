@@ -15,9 +15,7 @@ async function DBConnect() {
   if (!cached.promise) {
     const opts = {
       dbName: "khanaKhazana",
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      bufferCommands: true,
+      bufferCommands: false,
     };
     cached.promise = mongoose.connect(MONGO_URI, opts);
   }
