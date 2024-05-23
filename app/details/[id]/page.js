@@ -123,14 +123,18 @@ export default async function ProductDetailPage({ params: { id } }) {
         <div className="container py-12">
           <h3 className="font-semibold text-xl py-6">How to Make it</h3>
           <div>
-            {recipe.steps.map((cookingMethod, i) => (
-              <Fragment key={i}>
-                <div className="step">
-                  <h3>Step {i + 1}</h3>
-                  <p>{cookingMethod}</p>
-                </div>
-              </Fragment>
-            ))}
+            {recipe.steps.length > 0 ? (
+              recipe.steps.map((cookingMethod) => (
+                <Fragment key={i}>
+                  <div className="step">
+                    <h3>Step {i + 1}</h3>
+                    <p>{cookingMethod}</p>
+                  </div>
+                </Fragment>
+              ))
+            ) : (
+              <p>Cooking Method Not Found!</p>
+            )}
           </div>
         </div>
       </section>

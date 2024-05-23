@@ -8,13 +8,17 @@ export default async function SideBar() {
 
   return (
     <ul className="pl-2 my-6 space-y-4 text-gray-500 text-sm">
-      {uniqueCategories.map((recipe) => (
-        <li key={recipe.id}>
-          <Link href={`category/${encodeURIComponent(recipe.category)}`}>
-            {recipe.category}
-          </Link>
-        </li>
-      ))}
+      {uniqueCategories.length > 0 ? (
+        uniqueCategories.map((recipe) => (
+          <li key={recipe.id}>
+            <Link href={`category/${encodeURIComponent(recipe.category)}`}>
+              {recipe.category}
+            </Link>
+          </li>
+        ))
+      ) : (
+        <p>Recipe Not Found!</p>
+      )}
     </ul>
   );
 }
