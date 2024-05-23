@@ -1,20 +1,24 @@
 import mongoose from "mongoose";
-import { recipeModel } from "@/models/recipesModel";
 import { userModel } from "@/models/userModel";
+import { recipeModel } from "@/models/recipesModel";
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils";
+import DBConnect from "@/services";
 
 async function getAllRecipes() {
+  await DBConnect();
   const allRecipes = await recipeModel.find().lean();
 
   return replaceMongoIdInArray(allRecipes);
 }
 
 async function getRecipestById(recipeId) {
+  await DBConnect();
   const recipe = await recipeModel.findById(recipeId).lean();
   return replaceMongoIdInObject(recipe);
 }
 
 async function getRecipestByCategory(recipeCategory) {
+  await DBConnect();
   const recipe = await recipeModel.find({ category: recipeCategory }).lean();
   return replaceMongoIdInArray(recipe);
 }
