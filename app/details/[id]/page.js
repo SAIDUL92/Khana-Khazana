@@ -124,7 +124,7 @@ export default async function ProductDetailPage({ params: { id } }) {
           <h3 className="font-semibold text-xl py-6">How to Make it</h3>
           <div>
             {recipe.steps.length > 0 ? (
-              recipe.steps.map((cookingMethod) => (
+              recipe.steps.map((cookingMethod, i) => (
                 <Fragment key={i}>
                   <div className="step">
                     <h3>Step {i + 1}</h3>
