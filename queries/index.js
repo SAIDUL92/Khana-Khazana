@@ -24,10 +24,12 @@ async function getRecipestByCategory(recipeCategory) {
 }
 
 async function createUser(user) {
+  await DBConnect();
   return await userModel.create(user);
 }
 
 async function findUserByCredentials(credentials) {
+  await DBConnect();
   const user = await userModel.findOne(credentials).lean();
   if (user) {
     return replaceMongoIdInObject(user);
@@ -36,6 +38,7 @@ async function findUserByCredentials(credentials) {
 }
 
 async function updateFavourite(recipeId, authId) {
+  await DBConnect();
   const user = await userModel.findById(authId);
 
   if (user) {
