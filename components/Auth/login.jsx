@@ -8,7 +8,7 @@ import { useAuth } from "@/app/hooks";
 
 export default function LogIn() {
   const [error, setError] = useState("");
-  const { setAuth } = useAuth();
+  const { setAuth, fevPath } = useAuth();
   const router = useRouter();
 
   async function onSubmit(event) {
@@ -19,9 +19,9 @@ export default function LogIn() {
 
       if (found) {
         setAuth(found);
-        router.push("/");
+        router.push(fevPath ? fevPath : "/");
       } else {
-        setError("Please provide a valid login credential");
+        setError("Please provide a valid credential!");
       }
     } catch (err) {
       setError(err.message);
